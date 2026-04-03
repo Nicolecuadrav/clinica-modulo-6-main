@@ -18,6 +18,14 @@ class PacienteListView(LoginRequiredMixin, ListView):
     template_name='core/pacientes/listar.html'
     context_object_name='pacientes'
 
+    def get_queryset(self):
+        # Filtro ORM: capturamos el parámetro 'q' de la URL
+        query = self.request.GET.get('q')
+        if query:
+            # Filtramos pacientes cuyo nombre contenga el texto buscado
+            return Paciente.objects.filter(nombre__icontains=query)
+        return Paciente.objects.all()
+
 
 class PacienteCreateView(LoginRequiredMixin,SuccessMessageMixin, CreateView):
     model = Paciente
