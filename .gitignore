@@ -2,5 +2,6 @@ venv
 .env
 
 core/__pycache__/
+core/test/__pycache__/
 clinica/__pycache__/
 core/migrations/__pycache__/

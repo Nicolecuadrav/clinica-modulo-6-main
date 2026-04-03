@@ -4,9 +4,9 @@ Sistema de gestión para una clínica médica desarrollado con Django. Permite a
 
 ## Funcionalidades
 
-- **Pacientes:** registro, edición, eliminación y listado con edad calculada automáticamente.
-- **Doctores:** CRUD completo con especialidad médica.
-- **Citas Médicas:** agendamiento con validación de horarios (sin solapamiento para paciente ni doctor).
+- **Pacientes:** registro, edición, eliminación y listado con búsqueda por nombre. Edad calculada automáticamente.
+- **Doctores:** CRUD completo con especialidad médica y búsqueda por nombre.
+- **Citas Médicas:** agendamiento con validación de horarios (sin solapamiento para paciente ni doctor) y filtros por fecha y nombre de paciente.
 - **Panel de administración** Django con búsqueda y filtros configurados.
 - **Autenticación:** login/logout requerido para acceder a todas las vistas.
 
@@ -30,7 +30,7 @@ Sistema de gestión para una clínica médica desarrollado con Django. Permite a
 
 ```bash
 # 1. Clonar el repositorio
-git clone git@github.com:Angelopaolo23/clinica-modulo-6.git
+git clone git@github.com:Nicolecuadrav/clinica-modulo-6-main.git
 cd evaluacion_6
 
 # 2. Crear y activar entorno virtual
@@ -77,19 +77,30 @@ DB_PASSWORD=tu_contraseña_postgres
 | `/horas/`     | Listado de citas médicas       |
 | `/admin/`     | Panel de administración Django |
 
+## Tests
+
+Los tests validan el comportamiento de los modelos usando una base de datos de prueba temporal. Para ejecutarlos:
+
+```bash
+python manage.py test core.test
+```
+
+Cubren creación de registros, validaciones de campos y restricciones de unicidad (constraints) para los modelos `Paciente`, `Doctor` y `CitaMedica`.
+
 ## Estructura del proyecto
 
 ```
 evaluacion_6/
-├── clinica/          # Configuración del proyecto (settings, urls)
-├── core/             # Aplicación principal
-│   ├── models.py     # Modelos: Paciente, Doctor, CitaMedica
-│   ├── views.py      # Vistas basadas en clases (CBVs)
-│   ├── forms.py      # Formularios con estilos Bootstrap
-│   ├── urls.py       # Rutas de la aplicación
-│   ├── admin.py      # Configuración del panel admin
-│   └── templates/    # Plantillas HTML
-├── .env.example      # Plantilla de variables de entorno
-├── requirements.txt  # Dependencias Python
+├── clinica/              # Configuración del proyecto (settings, urls)
+├── core/                 # Aplicación principal
+│   ├── models.py         # Modelos: Paciente, Doctor, CitaMedica
+│   ├── views.py          # Vistas basadas en clases (CBVs)
+│   ├── forms.py          # Formularios con estilos Bootstrap
+│   ├── urls.py           # Rutas de la aplicación
+│   ├── admin.py          # Configuración del panel admin
+│   ├── templates/        # Plantillas HTML
+│   └── test/             # Tests unitarios por modelo
+├── .env.example          # Plantilla de variables de entorno
+├── requirements.txt      # Dependencias Python
 └── manage.py
 ```
