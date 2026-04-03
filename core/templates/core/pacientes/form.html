@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6"> <div class="card border-0 shadow-sm custom-card">
+            <div class="card-header custom-thead py-3"> <h4 class="mb-0 fw-bold text-white text-center">{{ titulo }}</h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="post" class="custom-form">
+                    {% csrf_token %}
+                    
+                    <div class="form-fields-container">
+                        {{ form.as_p }}
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4 pt-3 border-top">
+                        <a href="{% url 'listar_paciente' %}" class="btn btn-edit px-4 order-2 order-md-1">Cancelar</a>
+                        <button type="submit" class="btn btn-panel px-5 order-1 order-md-2">Guardar Registro</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

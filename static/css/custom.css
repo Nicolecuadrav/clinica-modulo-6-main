@@ -1,0 +1,345 @@
+/* VARIABLES */
+:root {
+    --color-navbar: #1A2D42;   /* Navbar */
+    --color-botones: #2E4156;    /* Botones */
+    --color-bordes: #AAB7B7;  /* Bordes */
+    --color-detalles: #C0C8CA;  /* Detalles */
+    --color-fondo: #F8FAFB;    /* Fondo */
+    --color-white: #FFFFFF;
+}
+
+
+body {
+    background-color: var(--color-white) !important; 
+    font-family: 'Inter', sans-serif;
+    color: var(--color-navbar);
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: var(--color-navbar) !important;
+    border-bottom: 2px solid var(--color-detalles) !important;
+    padding: 0.7rem 0;
+}
+
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-white) !important;
+    font-size: 1.3rem;
+}
+
+.nav-link {
+    color: var(--color-detalles) !important; /* Gris claro para que no pese */
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--color-white) !important;
+}
+
+
+/* TARJETAS*/
+.card {
+    background-color: var(--color-white);
+    border: 1px solid #E5E7EB; /* Gris muy suave */
+    border-top: 4px solid var(--color-botones); /* El color de tu paleta como detalle */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+/* BOTONES */
+.btn-logout {
+    color: var(--color-white) !important;
+    border: 1px solid var(--color-bordes) !important;
+    background-color: transparent;
+}
+
+.btn-logout:hover {
+    background-color: var(--color-botones) !important;
+    border-color: var(--color-botones) !important;
+}
+
+.btn-admin {
+    background-color: var(--color-botones) !important;
+    color: var(--color-white) !important;
+    border: none;
+    font-weight: 600;
+}
+
+.btn-admin:hover {
+    background-color: var(--color-navbar) !important;
+}
+
+
+/* LOGIN */
+
+.login-page {
+    background: linear-gradient(135deg, var(--color-bg-grey) 0%, #E9ECEF 100%) !important;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    border-radius: 16px !important;
+    background-color: var(--color-white);
+    box-shadow: 0 15px 35px rgba(26, 45, 66, 0.15) !important;
+    overflow: hidden;
+}
+
+.login-header {
+    background-color: var(--color-navbar);
+    padding: 2.5rem 1rem;
+    text-align: center;
+}
+
+.login-header h3 {
+    color: var(--color-white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin: 0;
+}
+
+.custom-input {
+    border: 1px solid var(--color-bordes) !important;
+    padding: 0.75rem !important;
+    border-radius: 8px !important;
+}
+
+.custom-input:focus {
+    border-color: var(--color-botones) !important;
+    box-shadow: 0 0 0 3px rgba(46, 65, 86, 0.1) !important;
+}
+
+/* ALERTA DE ERROR */
+.login-page .alert-danger {
+    background-color: #fdf2f2;
+    border: 1px solid #f8d7da;
+    color: #a53d3d;
+    border-radius: 8px;
+}
+
+/* PANTALLAS PEQUEÑAS */
+@media (max-width: 576px) {
+    .login-card {
+        margin: 0 10px;
+    }
+}
+
+/* ESTILOS PANEL DE CONTROL*/
+
+.custom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px !important;
+    background-color: var(--color-white);
+    border-top: 5px solid var(--color-botones) !important; /* Detalle superior de la paleta */
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+}
+
+.icon-box {
+    font-size: 2rem;
+    background-color: var(--color-fondo);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.btn-panel {
+    background-color: var(--color-botones) !important;
+    color: var(--color-white) !important;
+    border: none;
+    font-weight: 600;
+    padding: 0.6rem;
+    transition: 0.3s;
+}
+
+.btn-panel:hover {
+    background-color: var(--color-navbar) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    h2.display-6 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    .col-md-12 p {
+        text-align: center;
+    }
+}
+
+/* ESTILOS LISTAR*/
+
+
+.custom-thead {
+    background-color: var(--color-navbar) !important;
+}
+
+
+
+.custom-thead th {
+    color: var(--color-detalles) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    padding: 1rem 0.5rem !important;
+    border: none;
+}
+
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+
+.table tbody tr:hover {
+    background-color: rgba(170, 183, 183, 0.1) !important; 
+}
+
+
+
+.table td {
+    padding: 1rem 0.5rem !important;
+    color: var(--color-navbar);
+    border-bottom: 1px solid var(--color-bg-grey);
+}
+
+/* BOTONES */
+
+.btn-edit {
+    background-color: var(--color-detalles) !important;
+    color: var(--color-navbar) !important;
+    border: 1px solid var(--color-bordes) !important;
+    font-weight: 500;
+
+}
+
+
+.btn-edit:hover {
+    background-color: var(--color-bordes) !important;
+}
+
+
+.btn-delete {
+    background-color: transparent !important;
+    color: #a53d3d !important; /* Un rojo desaturado, más elegante para salud */
+    border: 1px solid #d1a5a5 !important;
+}
+
+
+
+.btn-delete:hover {
+    background-color: #a53d3d !important;
+    color: white !important;
+}
+
+.badge-horas {
+    background-color: var(--color-bg-grey) !important;
+}
+
+.badge-doctores {
+    background-color: var(--color-detalles) !important;
+    color: var(--color-navbar) !important;
+}
+
+.mensaje-sin-horas {
+    font-size: 1.5rem;
+}
+@media (max-width: 768px) {
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }  
+}
+
+
+/* ESTILOS PARA FORMULARIOS */
+
+.custom-form p {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-form label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-navbar);
+    margin-bottom: 0.5rem;
+}
+
+/* ESTILOS PARA INPUTS */
+.custom-form input, 
+.custom-form select, 
+.custom-form textarea {
+    border: 1px solid var(--color-bordes) !important;
+    border-radius: 8px !important;
+    padding: 0.6rem 0.8rem !important;
+    color: var(--color-navbar);
+    transition: all 0.3s ease;
+}
+
+.custom-form input:focus, 
+.custom-form select:focus {
+    outline: none !important;
+    border-color: var(--color-botones) !important;
+    box-shadow: 0 0 0 3px rgba(46, 65, 86, 0.1) !important;
+}
+
+@media (max-width: 767px) {
+    .btn-panel, .btn-edit {
+        width: 100%;
+        padding: 0.8rem;
+    }
+}
+
+/* ESTILOS ELIMINACIÓN */
+
+.custom-card-alert {
+    border-radius: 12px !important;
+    background-color: var(--color-white);
+    border-left: 6px solid #d1a5a5 !important; 
+    transition: box-shadow 0.3s ease;
+}
+
+.custom-card-alert:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12) !important;
+}
+
+.header-card-eliminar {
+    background-color: var(--color-bg-grey) !important;
+    border-bottom: 1px solid var(--color-bordes) !important;
+    font-size: 2.2rem;
+    color: var(--color-navbar) !important;
+}
+
+.nombre-eliminar {
+    color: #a53d3d;
+}
+
+.alert-delete {
+    background-color: var(--color-fondo) !important;
+    border: 1px dashed var(--color-bordes) !important;
+    color: var(--color-navbar) !important;
+}
+
+
+@media (max-width: 767px) {
+    .custom-card-alert .btn-panel, 
+    .custom-card-alert .btn-delete {
+        width: 100%;
+        padding: 0.8rem;
+    }
+}
+

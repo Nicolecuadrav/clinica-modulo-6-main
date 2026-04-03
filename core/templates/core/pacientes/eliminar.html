@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="col-12 col-md-8 col-lg-5"> 
+        <div class="card border-0 shadow-lg custom-card-alert">
+            <div class="card-header text-center py-3 header-card-eliminar">
+                <i class="mb-2 d-block text-warning">⚠️</i>
+                <h4 class="mb-0 fw-bold">Confirmar Acción</h4>
+            </div>
+            
+            <div class="card-body p-4 text-center >
+                <p class="lead mb-2">¿Estás seguro de que deseas eliminar al paciente?</p>
+                <p class="fw-bold fs-5 mb-4 nombre-eliminar">
+                    {{ object.nombre }} {{ object.apellido }}
+                </p>
+                <p class="text-muted small mb-0">Esta acción no se puede deshacer y se perderán todos los registros asociados.</p>
+            </div>
+
+            <div class="card-footer p-4 bg-white border-0">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <a href="{% url 'listar_paciente' %}" class="btn btn-panel px-4 order-2 order-md-1">
+                            No, Cancelar y Volver
+                        </a>
+                        <button type="submit" class="btn btn-sm btn-delete px-5 order-1 order-md-2">
+                            Sí, Eliminar Registro
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
