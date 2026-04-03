@@ -87,6 +87,18 @@ class CitaListView(LoginRequiredMixin, ListView):
     template_name = 'core/horas/listar.html'
     context_object_name = 'horas'
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        fecha = self.request.GET.get('fecha')
+        paciente = self.request.GET.get('paciente')
+
+        if fecha:
+            queryset = queryset.filter(fecha=fecha)
+        if paciente:
+            queryset = queryset.filter(paciente__nombre__icontains=paciente)
+        
+        return queryset
+
 class CitaCreateView(LoginRequiredMixin,SuccessMessageMixin, CreateView):
     model = CitaMedica
     template_name = 'core/horas/form.html'
