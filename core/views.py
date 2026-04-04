@@ -58,6 +58,14 @@ class DoctorListView(LoginRequiredMixin, ListView):
     template_name = 'core/doctores/listar.html'
     context_object_name = 'doctores'
 
+    def get_queryset(self):
+        # Filtro ORM: capturamos el parámetro 'q' de la URL
+        query = self.request.GET.get('q')
+        if query:
+            # Filtramos pacientes cuyo nombre contenga el texto buscado
+            return Doctor.objects.filter(nombre__icontains=query)
+        return Doctor.objects.all()
+
 class DoctorCreateView(LoginRequiredMixin,SuccessMessageMixin, CreateView):
     model = Doctor
     form_class = DoctorForm
